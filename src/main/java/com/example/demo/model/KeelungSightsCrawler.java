@@ -23,12 +23,11 @@ public class KeelungSightsCrawler {
             List<Sight> sightList = new ArrayList<>();
             for (Element heading : headings) {
                 if(heading.text().contains(setZone)) {
-                    String district = heading.text();
                     Element nextUl = heading.nextElementSibling();
                     if (nextUl != null && nextUl.tagName().equals("ul")) {
                         for (Element li : nextUl.select("li")) {
                             String link = li.select("a").attr("href");
-                            if (link != null && !link.isEmpty()) {
+                            if (!link.isEmpty()) {
                                 if (!link.startsWith("http")) {
                                     link = "https://www.travelking.com.tw" + link;
                                 }
