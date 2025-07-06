@@ -5,17 +5,19 @@ import com.example.demo.model.Sight;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 public class KeelungSightsCrawlerController {
     @GetMapping("/{zone}")
-    public Sight[] getSights(@PathVariable("zone") String zone) {
+    public ResponseEntity<Sight[]> getSights(@PathVariable("zone") String zone) {
         KeelungSightsCrawler crawler = new KeelungSightsCrawler();
         Sight[] sights = crawler.getItems(zone);
-        if (sights == null) {
-            return new Sight[0];
+        if (sights == null || sights.length == 0) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        return sights;
+        return ResponseEntity.ok(sights);
     }
 }
 
