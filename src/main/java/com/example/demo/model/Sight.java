@@ -19,9 +19,7 @@ public class Sight {
                 "Address: " + Address + '\n';
     }
 
-    public String getSightName() {
-        return SightName;
-    }
+    public String getSightName() {return SightName;}
     public void setSightName(String sightName) {
         SightName = sightName;
     }

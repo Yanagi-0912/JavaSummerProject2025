@@ -54,7 +54,7 @@ public class KeelungSightsCrawler {
 
             sight.setZone(setZone);
 
-            Element categorySpan = doc.selectFirst("span[property=rdfs\\:label] strong");
+            Element categorySpan = doc.selectFirst("span[property=rdfs:label] strong");
             sight.setCategory(categorySpan != null ? categorySpan.text() : "");
 
             Element photoMeta = doc.selectFirst("meta[itemprop=image]");
