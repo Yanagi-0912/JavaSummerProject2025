@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 public class KeelungSightsCrawlerController {
-    @GetMapping("/{zone}")
+    @GetMapping("sight/{zone}")
     public ResponseEntity<Sight[]> getSights(@PathVariable("zone") String zone) {
         KeelungSightsCrawler crawler = new KeelungSightsCrawler();
         Sight[] sights = crawler.getItems(zone);
@@ -21,4 +21,4 @@ public class KeelungSightsCrawlerController {
     }
 }
 
-//http://localhost:8080/七堵
+//http://localhost:8080/sight/七堵
