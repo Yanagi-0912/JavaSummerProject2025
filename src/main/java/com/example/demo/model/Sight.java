@@ -9,6 +9,18 @@ public class Sight {
     private String Address;
 
     public Sight(){}
+
+    public static Sight of(String sightName, String zone, String category, String photoURL, String description, String address) {
+        Sight sight = new Sight();
+        sight.setSightName(sightName);
+        sight.setZone(zone);
+        sight.setCategory(category);
+        sight.setPhotoURL(photoURL);
+        sight.setDescription(description);
+        sight.setAddress(address);
+        return sight;
+    }
+
     @Override
     public String toString() {
         return "SightName: " + SightName + '\n' +
