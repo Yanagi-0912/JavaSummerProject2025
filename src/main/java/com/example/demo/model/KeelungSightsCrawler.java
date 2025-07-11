@@ -65,7 +65,6 @@ public class KeelungSightsCrawler {
 
             Element addrMeta = doc.selectFirst("meta[itemprop=address]");
             sight.setAddress(addrMeta != null ? addrMeta.attr("content") : "");
-
             return sight;
         } catch (IOException e) {
             return null;
