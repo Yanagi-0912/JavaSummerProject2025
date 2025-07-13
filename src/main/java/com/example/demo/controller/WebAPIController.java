@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 @CrossOrigin
-public class KeelungSightsCrawlerController {
+public class WebAPIController {
     @GetMapping("/SightAPI")
     public ResponseEntity<Sight[]> getSights(
             @RequestParam(value = "zone", required = false, defaultValue = "") String zone
