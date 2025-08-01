@@ -1,6 +1,12 @@
 package com.example.demo.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
+
+@Document(collection = "sight")
 public class Sight {
+    @Id
+    private String id;
     private String SightName;
     private String Zone;
     private String Category;
@@ -20,6 +26,10 @@ public class Sight {
                 "Description: " + Description + '\n' +
                 "Address: " + Address + '\n';
     }
+
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
 
     public String getSightName() {
         return SightName;
