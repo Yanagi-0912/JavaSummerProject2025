@@ -8,12 +8,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class KeelungSightsCrawler {
     public KeelungSightsCrawler(){}
     public Sight[] getItems(String setZone){
         Sight[] sights;
         try{
-            // 連線並取得網頁 Document 物件
+            // 取得網頁
             String URL = "https://www.travelking.com.tw/tourguide/taiwan/keelungcity/";
             Document doc = Jsoup.connect(URL).get();
 
@@ -50,21 +51,21 @@ public class KeelungSightsCrawler {
             Sight sight = new Sight();
 
             Element nameMeta = doc.selectFirst("meta[itemprop=name]");
-            sight.setSightName(nameMeta != null ? nameMeta.attr("content") : "");
+            sight.setSightName(nameMeta != null ? nameMeta.attr("content") : "Unknown Sight");
 
             sight.setZone(setZone);
 
             Element categorySpan = doc.selectFirst("span[property=rdfs:label] strong");
-            sight.setCategory(categorySpan != null ? categorySpan.text() : "");
+            sight.setCategory(categorySpan != null ? categorySpan.text() : "unknown");
 
             Element photoMeta = doc.selectFirst("meta[itemprop=image]");
             sight.setPhotoURL(photoMeta != null ? photoMeta.attr("content") : "");
 
             Element descMeta = doc.selectFirst("meta[itemprop=description]");
-            sight.setDescription(descMeta != null ? descMeta.attr("content") : "");
+            sight.setDescription(descMeta != null ? descMeta.attr("content") : "unknown");
 
             Element addrMeta = doc.selectFirst("meta[itemprop=address]");
-            sight.setAddress(addrMeta != null ? addrMeta.attr("content") : "");
+            sight.setAddress(addrMeta != null ? addrMeta.attr("content") : "unknown");
             return sight;
         } catch (IOException e) {
             return null;

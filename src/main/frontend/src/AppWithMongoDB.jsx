@@ -6,12 +6,15 @@ function App() {
   const [openIdx, setOpenIdx] = useState(null);
 
   const fetchPosts = (zone) => {
-    const url = `http://127.0.0.1:8080/SightAPI?zone=${zone}`;
+    const url = `http://127.0.0.1:8080/api/sights/keelung/${zone}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
         setOpenIdx(null);
+      })
+      .catch((error) => {
+        console.error("從 MongoDB 獲取數據時出錯:", error);
       });
   };
 
