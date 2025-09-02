@@ -59,7 +59,7 @@ public class KeelungSightsCrawler {
             sight.setCategory(categorySpan != null ? categorySpan.text() : "unknown");
 
             Element photoMeta = doc.selectFirst("meta[itemprop=image]");
-            sight.setPhotoURL(photoMeta != null ? photoMeta.attr("content") : "");
+            sight.setPhotoURL(photoMeta != null ? photoMeta.attr("content") : "https://clipart-library.com/image_gallery/515127.jpg");
 
             Element descMeta = doc.selectFirst("meta[itemprop=description]");
             sight.setDescription(descMeta != null ? descMeta.attr("content") : "unknown");

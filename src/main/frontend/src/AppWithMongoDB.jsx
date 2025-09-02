@@ -5,8 +5,8 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [openIdx, setOpenIdx] = useState(null);
 
-  const fetchPosts = (zone) => {
-    const url = `http://127.0.0.1:8080/api/sights/keelung/${zone}`;
+  const fetchPosts = (Zone) => {
+    const url = `/api/sights/keelung/${Zone}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -60,7 +60,11 @@ function App() {
             {openIdx === idx && (
               <div className="mt-2 text-gray-300">
                 {post.description}<br />
-                <img src={post.photoURL} alt={post.sightName} className="max-w-full rounded-lg mt-2 shadow" />
+                <img
+                  src={post.photoURL == "" ? "https://clipart-library.com/image_gallery/515127.jpg" : post.photoURL}
+                  alt={post.sightName}
+                  className="max-w-full rounded-lg mt-2 shadow"
+                />
               </div>
             )}
           </div>

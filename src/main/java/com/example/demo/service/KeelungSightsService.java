@@ -12,12 +12,12 @@ import java.util.List;
 
 @Service
 public class KeelungSightsService {
-    @Autowired
-    private SightsRepository sightsRepository;
-
+    private final SightsRepository sightsRepository;
     private final KeelungSightsCrawler crawler;
 
-    public KeelungSightsService() {
+    @Autowired
+    public KeelungSightsService(SightsRepository sightsRepository) {
+        this.sightsRepository = sightsRepository;
         this.crawler = new KeelungSightsCrawler();
     }
 

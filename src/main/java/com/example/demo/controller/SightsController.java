@@ -21,13 +21,4 @@ public class SightsController {
         }
         return ResponseEntity.ok(sights);
     }
-
-    @PostMapping("/keelung/{zone}/crawl")
-    public ResponseEntity<List<Sight>> crawlAndSaveSights(@PathVariable String zone) {
-        List<Sight> sights = keelungSightsService.crawlAndSaveSightsByZone(zone);
-        if (sights.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(sights);
-    }
 }
