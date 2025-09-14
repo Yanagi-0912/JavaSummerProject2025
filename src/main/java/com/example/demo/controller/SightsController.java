@@ -13,8 +13,8 @@ public class SightsController {
     @Autowired
     private KeelungSightsService keelungSightsService;
 
-    @GetMapping("/keelung/{zone}")
-    public ResponseEntity<List<Sight>> getSightsByZone(@PathVariable String zone) {
+    @GetMapping("/keelung")
+    public ResponseEntity<List<Sight>> getSightsByZone(@RequestParam String zone) {
         List<Sight> sights = keelungSightsService.getSightsByZone(zone);
         if (sights.isEmpty()) {
             return ResponseEntity.notFound().build();

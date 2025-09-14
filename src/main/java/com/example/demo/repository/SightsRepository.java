@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface SightsRepository extends MongoRepository<Sight, String> {
-    @Query("{ 'Zone': ?0 }")
+    @Query("{ 'zone' : ?0 }")
     List<Sight> findByZone(String zone);
 }

@@ -6,15 +6,22 @@ function App() {
   const [openIdx, setOpenIdx] = useState(null);
 
   const fetchPosts = (Zone) => {
-    const url = `/api/sights/keelung/${Zone}`;
+    const encodedZone = encodeURIComponent(Zone);
+    const url = `/api/sights/keelung?zone=${encodedZone}`;
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         setPosts(data);
         setOpenIdx(null);
       })
       .catch((error) => {
         console.error("從 MongoDB 獲取數據時出錯:", error);
+        setPosts([]);
       });
   };
 
