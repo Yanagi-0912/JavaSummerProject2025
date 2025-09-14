@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.KeelungSightsCrawler;
+import com.example.demo.controller.KeelungSightsCrawler;
 import com.example.demo.model.Sight;
 import com.example.demo.repository.SightsRepository;
 import org.springframework.beans.factory.annotation.Autowired;

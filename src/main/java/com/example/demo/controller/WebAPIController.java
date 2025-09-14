@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.KeelungSightsCrawler;
 import com.example.demo.model.Sight;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

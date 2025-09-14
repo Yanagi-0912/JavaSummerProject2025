@@ -1,5 +1,6 @@
-package com.example.demo.model;
+package com.example.demo.controller;
 
+import com.example.demo.model.Sight;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,13 +11,16 @@ import java.util.List;
 
 
 public class KeelungSightsCrawler {
+    private static final int TIMEOUT = 180000; // 3 minutes timeout
     public KeelungSightsCrawler(){}
     public Sight[] getItems(String setZone){
         Sight[] sights;
         try{
             // 取得網頁
             String URL = "https://www.travelking.com.tw/tourguide/taiwan/keelungcity/";
-            Document doc = Jsoup.connect(URL).get();
+            Document doc = Jsoup.connect(URL)
+                    .timeout(TIMEOUT)
+                    .get();
 
             Element guideDiv = doc.getElementById("guide-point");
             Elements headings = guideDiv.select("h4");

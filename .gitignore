@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### frontend###
+jsoup-1.21.1.jar
